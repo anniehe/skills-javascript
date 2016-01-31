@@ -361,6 +361,21 @@
 
 <script>
   // put your code here
+  var submitButton = $("input[type='submit']");
+
+  function showAgreeableText(evt) {
+    evt.preventDefault();
+
+    var favoriteFoodValue = $("#favorite-food-input").val();
+
+    if (favoriteFoodValue) {
+      $("#agreeable-text").html("I like " + favoriteFoodValue + ", too.");
+    } else {
+      $("#agreeable-text").html("You didn't enter your favorite food.");
+    }
+  }
+
+  submitButton.click(showAgreeableText);  
 </script>
 
 <div class="hint">
