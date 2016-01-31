@@ -228,7 +228,7 @@
 <p>You should use jQuery for these parts.</p>
 <p>We didn't include jQuery in this document, though&mdash;so your first task is to include it!</p>
 
-
+<script src="https://code.jquery.com/jquery.js"></script>
 
 <h3>Finding the Button</h3>
 <p>
@@ -241,6 +241,11 @@
 
 <script>
   // code here for above problem
+  function popUp(evt) {
+    alert("Oh, hi again! This is another popup alert!");
+  }
+
+  $(".tricky-to-find").click(popUp);
 </script>
 
 <div class="hint">
@@ -268,6 +273,13 @@
 
 <script>
   // put your code here
+  var adorbzImage = $("#kittenz-rule");
+
+  function changeImage(evt) {
+    adorbzImage.attr("src", "http://i.imgur.com/tGJ2aV2.jpg").attr("width", 400);
+  }
+
+  adorbzImage.dblclick(changeImage);
 </script>
 
 <div class="hint">
@@ -301,6 +313,11 @@
 
 <script>
   // put your code here
+  function showPorcupine(evt) {
+    $("#cute-porcupine-image").fadeIn(1500);
+  }
+
+  $("#make-a-porcupine").click(function() { setTimeout(showPorcupine, 1000); });
 </script>
 
 <div class="hint">
