@@ -405,6 +405,34 @@
 
 <script>
   // put your code here
+  function playNumberGuessingGame(evt) {
+    var randomNumber = Math.floor((Math.random() * 100) + 1);
+    // console.log(randomNumber);
+
+    var playing = true;
+
+    while (playing) {
+      var guess = parseInt(prompt("Guess a number between 1 and 100."));
+        
+      if (isNaN(guess)) {
+        alert("You didn't enter a number.");
+        
+      } else {
+        if (guess < randomNumber) {
+          alert("Your guess was too low!");
+        } else if (guess > randomNumber) {
+          alert("Your guess was too high!");
+        } else {
+          alert("Congrats! You guessed the number " + randomNumber + ". Goodbye!");
+          break;
+        }
+      }
+
+      var playing = confirm("Want to keep trying?");
+    }
+  }
+
+  $("#play-guessing-game").click(playNumberGuessingGame);
 </script>
 
 <div class="hint">
