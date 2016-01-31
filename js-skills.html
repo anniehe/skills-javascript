@@ -549,9 +549,45 @@
 </fieldset>
 
 <script>
-    var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
+  var PRIME_COLORS = ['orange', 'midnightblue', 'darkgoldenrod', 'green', 'purple'];
 
   // put the rest of your code here
+
+  function generatePrimeNumbers() {
+    var  primeNumberArray = [];
+
+    // For every number starting from 2 up until the primeNumberArray has 5 numbers, do the following:
+    for (var counter = 2; primeNumberArray.length < 5; counter++) {
+      // Loop through values from 2 up to 1 before the counter.
+      for (var i = 2; i <= counter-1; i++) {
+        // If the number is divisible by i, it's not a prime.
+        // Break out of loop.
+        if (counter % i === 0) {
+          break;
+        }
+      }
+      // If loop is completed, the number is prime (only divisible by 1 and itself).
+      // Add prime number to array.
+      if (counter === i) {
+        primeNumberArray.push(counter);
+      }
+    }
+    // console.log(primeNumberArray);
+    return primeNumberArray;
+  }
+
+  function makeBoxes(evt) {
+    // AHHHHHHHHHH! 
+
+    for (var i = 0; i < PRIME_COLORS.length; i++) {
+      $("#prime-box-area").append("<div class='prime-box' id='PRIME_COLORS[i]'></div>");
+      $("#PRIME_COLORS[i]").attr("style", "background-color: PRIME_COLORS[i]");
+      var primeNums = generatePrimeNumbers();
+      $("#prime-box-area .prime-box").html(primeNums[i]);    
+    }
+  }
+
+  $("#make-prime-boxes").click(makeBoxes);
 </script>
 
 
