@@ -98,6 +98,13 @@
 
 <script>
   // code here for above problem
+  var popupButton = document.getElementById("popup-alert-button");
+
+  function showPopup(evt) {
+    alert("Hello, there! This is a popup alert!");
+  }
+
+  popupButton.addEventListener("click", showPopup);
 </script>
 
 
@@ -116,6 +123,14 @@
 
 <script>
   // code here for above-problem
+  var message = document.getElementById("message-to-change");
+  var changeMessageButton = document.getElementById("change-hello-to-goodbye-button");
+
+  function changeMessage(evt) {
+    message.innerText = "goodbye";
+  }
+
+  changeMessageButton.addEventListener("click", changeMessage);
 </script>
 
 <div class="hint">
@@ -145,6 +160,14 @@
 
 <script>
   // code here for above problem
+  var alertButton = document.getElementById("prevent-form-submission-button");
+
+  function preventFormSubmission(evt) {
+    evt.preventDefault();
+    alert("This is just an alert!");
+  }
+
+  alertButton.addEventListener("click", preventFormSubmission);
 </script>
 
 <div class="hint">
@@ -176,20 +199,24 @@
 <script>
 //  Here's a stub of a function you can use!
 
-//  function reverseString() {
-//    var msg = "Porcupines are cute";
-//
-//    // do some stuff here to reverse that string into a new variable
-//    var newMsg = "This should be the reversed string";
-//
-//    alert(newMsg);
-//  }
+  function reverseString(evt) {
+    var msg = "Porcupines are cute";
+
+//  Reverse that string into a new variable
+    var newMsg = "";
+    var msgArray = msg.split("");
+
+    for (var i = msgArray.length - 1; i >= 0; i--) {
+      newMsg += msgArray[i];
+    }
+
+    alert(newMsg);
+  }
 
 // Here's a stub of event stuff you could use
-//
 
-//  var button = document.getElementById('reverse-string-button');
-//  button.addEventListener('click', reverseString);
+  var button = document.getElementById("reverse-string-button");
+  button.addEventListener("click", reverseString);
 </script>
 
 
