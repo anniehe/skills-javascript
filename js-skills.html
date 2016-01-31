@@ -473,6 +473,48 @@
 
 <script>
   // put your code here
+  var playGameButton = $("#play-guessing-game-2");
+  var submitGuessButton = $("#try-this-number");
+  var numberGuessed = $("#number-guessed");
+
+  function playNumGuessingGame(evt) {
+    submitGuessButton.prop("disabled", false);
+    numberGuessed.prop("disabled", false);
+    playGameButton.prop("disabled", true);
+
+    var randomNumber = Math.floor((Math.random() * 100) + 1);
+    // console.log(randomNumber);
+
+    $("#number-guessing-msg").html("");
+
+    function checkGuess(evt) {
+      evt.preventDefault();
+
+      var numberGuessedValue = numberGuessed.val();
+      // console.log(numberGuessedValue);
+
+      if (numberGuessedValue < randomNumber) {
+        text = "Too low!";
+      } else if (numberGuessedValue > randomNumber) {
+        text = "Too high!";
+      } else {
+        text = "Just right. Good job!";
+        playGameButton.prop("disabled", false);
+        submitGuessButton.prop("disabled", true);
+        numberGuessed.prop("disabled", true);
+      }
+
+      numberGuessed.val(false);
+
+      $("#number-guessing-msg").html(text);
+
+    }
+
+    submitGuessButton.click(checkGuess);
+  
+  }
+
+  playGameButton.click(playNumGuessingGame);
 </script>
 
 
